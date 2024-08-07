@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     const textarea = document.getElementById('textarea');
     const encriptar = document.getElementById('encriptar');
+    const encriptados = document.getElementById('encriptados')
     let mensajesOriginales = [];
     let mensajesEncriptados = [];
 
@@ -18,6 +19,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
             console.log(mensajesOriginales);
             console.log(mensajesEncriptados);
 
+            actualizarMensajes();
         }
-    })
-})
+    });
+
+    function actualizarMensajes() {
+        if (mensajesEncriptados.length > 0) {
+            encriptados.textContent = mensajesEncriptados.join(', ');
+        } else {
+            encriptados.textContent = 'Ningún mensaje fue encontrado';
+        }
+    }
+
+});
+
