@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     const textarea = document.getElementById('textarea');
     const encriptar = document.getElementById('encriptar');
-    const encriptados = document.getElementById('encriptados')
+    const encriptados = document.getElementById('encriptados');
+    const munecoLupa = document.getElementById('munecoLupa');
     let mensajesOriginales = [];
     let mensajesEncriptados = [];
 
@@ -25,11 +26,23 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     function actualizarMensajes() {
         if (mensajesEncriptados.length > 0) {
-            encriptados.textContent = mensajesEncriptados.join(', ');
+            encriptados.textContent = mensajesEncriptados.join('');
+            toggleVisibility(true)
         } else {
             encriptados.textContent = 'Ningún mensaje fue encontrado';
+            toggleVisibility(false)
+        }
+    }
+
+    function toggleVisibility(isVisible) {
+        if (isVisible) {
+            document.getElementById("hidden").style.display = "none";
+        } else {
+            munecoLupa.style.display = 'block';
         }
     }
 
 });
+
+
 

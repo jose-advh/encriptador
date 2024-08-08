@@ -18,7 +18,7 @@ body {
 }
 
 .header__alura img {
-    width: 10%;
+    width: 6rem;
 }
 
 .main {
@@ -90,7 +90,7 @@ body {
     border-radius: 15px;
 }
 
-.main__mensajes__encriptados img, 
+.munecoLupa, 
 .main__mensajes__encriptados h2 
  {
     padding: 10px;
@@ -116,4 +116,8 @@ footer {
     .main__mensajes__encriptados {
         padding: 0;
     } 
+
+    .main__input {
+        width: 22rem;
+    }
 }
