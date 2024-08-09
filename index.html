@@ -14,16 +14,16 @@
     <main class="main">
         <section class="main__encriptador">
             <textarea class="main__input" maxlength="30" id="textarea" oninput="actualizarContadorMax()" placeholder="Escriba el texto aquí."></textarea>  
-            <p id="contador"><img src="Media/iconos/info-circle.png" class="icono_info" alt="icono de info">Límite de 30 caracteres.</p>
-
             <div class="main__buttons">
+             <p class="main__buttons_p" id="contador"><img src="Media/iconos/info-circle.png" class="icono_info" alt="icono de info">Límite de 30 caracteres.</p>
                 <button class="main__encriptar" id="encriptar">Encriptar</button>
                 <button class="main__desencriptar" id="desencriptar">Desencriptar</button>
             </div>
         </section>
         <section class="main__mensajes__encriptados">
             <img id="hidden" class="munecoLupa"  style="display:block" src="Media/Muñeco.png" alt="Muñeco con una lupa en la mano">
-            <h2 id="encriptados">Ningún mensaje fue encontrado</h2>
+            <p id="encriptados">Ningún mensaje fue encontrado</p>
+            <button class="copy__button" id="copyButton" onclick="copiarContenido()" style="display: none;">Copiar</button>
         </section>
     </main>
     <footer>

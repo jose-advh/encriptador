@@ -4,8 +4,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const encriptados = document.getElementById('encriptados');
     const munecoLupa = document.getElementById('munecoLupa');
     const contador = document.getElementById('contador');
+    const texto = document.getElementById('copyButton').innerHTML;
     let mensajesOriginales = [];
     let mensajesEncriptados = [];
+    
 
     encriptar.addEventListener('click', () => {
         let mensaje = textarea.value;
@@ -36,6 +38,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     function toggleVisibility(isVisible) {
         if (isVisible) {
             document.getElementById("hidden").style.display = "none";
+            document.getElementById("copyButton").style.display = "block";
         } else {
             munecoLupa.style.display = 'block';
         }
@@ -49,6 +52,16 @@ function actualizarContadorMax() {
     
     contador.textContent = (max - actual) + ' caracteres restantes.';
 }
+
+const copiarContenido = async () => {
+    try {
+        await navigator.clipboard.writeText(mensajesEncriptados.value);
+        console.log("Funcionó")
+    } catch (err) {
+        console.error('Error al copiar: ', err);
+    }
+}
+
 
 
 
