@@ -1,3 +1,6 @@
+    let mensajesOriginales = [];
+    let mensajesEncriptados = [];
+
 document.addEventListener('DOMContentLoaded', (event) => {
     const textarea = document.getElementById('textarea');
     const encriptar = document.getElementById('encriptar');
@@ -5,8 +8,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const munecoLupa = document.getElementById('munecoLupa');
     const contador = document.getElementById('contador');
     const texto = document.getElementById('copyButton').innerHTML;
-    let mensajesOriginales = [];
-    let mensajesEncriptados = [];
+
     
 
     encriptar.addEventListener('click', () => {
@@ -55,7 +57,8 @@ function actualizarContadorMax() {
 
 const copiarContenido = async () => {
     try {
-        await navigator.clipboard.writeText(mensajesEncriptados.value);
+        const ultimoMensaje = mensajesEncriptados[mensajesEncriptados.length - 1];
+        await navigator.clipboard.writeText(ultimoMensaje);
         console.log("Funcionó")
     } catch (err) {
         console.error('Error al copiar: ', err);
