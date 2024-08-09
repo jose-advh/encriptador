@@ -13,7 +13,9 @@
     </header>
     <main class="main">
         <section class="main__encriptador">
-            <textarea class="main__input" id="textarea" placeholder="Escriba el texto aquí."></textarea>  
+            <textarea class="main__input" maxlength="30" id="textarea" oninput="actualizarContadorMax()" placeholder="Escriba el texto aquí."></textarea>  
+            <p id="contador"><img src="Media/iconos/info-circle.png" class="icono_info" alt="icono de info">Límite de 30 caracteres.</p>
+
             <div class="main__buttons">
                 <button class="main__encriptar" id="encriptar">Encriptar</button>
                 <button class="main__desencriptar" id="desencriptar">Desencriptar</button>
