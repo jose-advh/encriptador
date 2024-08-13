@@ -1,5 +1,6 @@
     let mensajesOriginales = '';
     let mensajesEncriptados = '';
+    let isEncriptado = false;
 
 document.addEventListener('DOMContentLoaded', (event) => {
     const textarea = document.getElementById('textarea');
@@ -23,6 +24,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             mensajesEncriptados = mensaje;
             textarea.value = "";
             console.log(mensajesOriginales);
+            isEncriptado = false;
             actualizarMensajes();
         }
     });
@@ -32,6 +34,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         if (mensaje === mensajesEncriptados) {
             encriptados.innerHTML = mensajesOriginales;
             textarea.value = "";
+            isEncriptado = true;
         } else {
             
         }
@@ -41,16 +44,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
     function actualizarMensajes() {
         if (mensajesEncriptados.length > 0) {
             encriptados.innerHTML = mensajesEncriptados;
-            toggleVisibility(true)
+            toggleVisibility(true);
         } else {
             encriptados.textContent = 'Ningún mensaje fue encontrado';
-            toggleVisibility(false)
+            toggleVisibility(false);
         }
     }
 
     function toggleVisibility(isVisible) {
         if (isVisible) {
             document.getElementById("hidden").style.display = "none";
+            document.getElementById("menuEncriptadoH2").style.display = "none"
             document.getElementById("copyButton").style.display = "block";
         } else {
             munecoLupa.style.display = 'block';
@@ -66,11 +70,19 @@ function actualizarContadorMax() {
     contador.textContent = (max - actual) + ' caracteres restantes.';
 }
 
+
 const copiarContenido = async () => {
     try {
-        const ultimoMensaje = mensajesEncriptados;
-        await navigator.clipboard.writeText(ultimoMensaje);
-        console.log("Funcionó")
+        let ultimoMensaje = mensajesEncriptados;
+        if (isEncriptado === false) {
+            await navigator.clipboard.writeText(ultimoMensaje);
+            console.log("Funcionó")
+        } else {
+            ultimoMensaje = mensajesOriginales;
+            await navigator.clipboard.writeText(ultimoMensaje);
+            console.log("Funcionó")
+        }
+
     } catch (err) {
         console.error('Error al copiar: ', err);
     }

@@ -26,14 +26,15 @@ body {
     display: flex;
     padding: 15px;
     justify-content: center;
+    
 
 }
 
 .main__encriptador {
     padding: 4rem;
-    display: flex;
-    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
+    
 }
 
 .main__input {
@@ -68,6 +69,7 @@ body {
     font-size: 0.8rem;
     display: flex;
     align-items: center;
+    gap: 5px;
 }
 
 .main__encriptar {
@@ -97,6 +99,7 @@ body {
 .main__mensajes__encriptados {
     display: flex;
     align-items: center;
+    text-align: center;
     align-content: center;
     justify-content: space-between;
     flex-direction: column;
@@ -144,6 +147,11 @@ footer {
 }
 
 @media (max-width: 958px) {
+
+    .munecoLupa {
+        display: none;
+    } 
+
     .main {
         flex-direction: column;
         align-items: center;
@@ -157,6 +165,11 @@ footer {
         
         padding: 0px;
     } 
+
+    .main__mensajes__encriptados img {
+        visibility: hidden;
+        width: 0px;
+    }
 
     .main__input {
         width: 22rem;
