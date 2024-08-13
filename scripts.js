@@ -19,13 +19,7 @@ function validarEntrada() {
     }
 }
 
-function actualizarContadorMax() {
-    const textarea = document.getElementById('textarea');
-    const max = textarea.getAttribute('maxlength');
-    const actual = textarea.value.length;
-    const contador = document.getElementById('contador');
-    contador.textContent = (max - actual) + ' caracteres restantes.';
-}
+
 
 function actualizarMensajes() {
     const encriptados = document.getElementById('encriptados');
@@ -81,7 +75,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
             textarea.value = "";
             isEncriptado = true;
         } else {
-            // Puedes agregar aquí la lógica para manejar el caso cuando el mensaje no coincide
         }
     });
 
